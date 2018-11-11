@@ -4,6 +4,11 @@ This app provides orientation based on your current location to spot rockets lau
 
 Feel free to file issues or request new features.
 
+[Download APK](https://github.com/Messier-Labs/rocket-watch/raw/master/distributables/rocket-watch.apk)
+
 ### Screenshot
 
-![screenshot](screenshot.jpg)
+<img alt="screenshot" src="screenshot.jpg" height="500">
+
+### License
+MIT © [Messier Labs](https://github.com/Messier-Labs)
