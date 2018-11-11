@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Platform, Text, View, StyleSheet } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
 
+import { API_ENDPOINT } from 'react-native-dotenv';
+
 import Compass from './src/components/Compass';
+import Timer from './src/components/Timer';
+
 import getBearing from './src/utils/get-bearing';
 import launchPadCoords from './src/utils/launch-pads';
 
@@ -12,7 +16,9 @@ export default class App extends Component {
     currentForwardBearing: null,
     bearingToLaunchPad: null,
     errorMessage: null,
-    launchPad: 1
+    launchPad: 1,
+    launchTime: null,
+    name: null
   };
 
   componentDidMount() {
@@ -21,10 +27,26 @@ export default class App extends Component {
         errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
       });
     } else {
+      this.getLaunchDetails();
       this.getLocationAsync();
       Location.watchHeadingAsync(this.handleHeading);
     }
   }
+
+  getLaunchDetails = async() => {
+    try {
+      let response = await fetch(`${API_ENDPOINT}/launch.js`);
+      let {
+        date,
+        launchPad,
+        name
+      } = await response.json();
+
+      this.setState({ launchTime: date, launchPad, name });
+    } catch(error) {
+      this.setState({ errorMessage: 'Could not fetch launch details' });
+    }
+  };
 
   getLocationAsync = async() => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
@@ -70,20 +92,22 @@ export default class App extends Component {
     let text = 'Getting your location..';
     if (this.state.errorMessage) {
       text = this.state.errorMessage;
-    }
-
-    if (this.state.bearingToLaunchPad) {
+    } else if (this.state.bearingToLaunchPad) {
       text = `Launch Pad ${this.state.launchPad}`;
     }
 
     return (
       <View style={styles.container}>
+        <Timer launchTime={this.state.launchTime} />
+
         <Compass
           toggleLaunchPad={this.toggleLaunchPad}
           bearingToLaunchPad={this.state.bearingToLaunchPad}
           currentForwardBearing={this.state.currentForwardBearing} />
 
-        <Text style={styles.paragraph}>{text}</Text>
+        <Text style={styles.rocket}>{this.state.name}</Text>
+
+        <Text style={styles.launchPad}>{text}</Text>
 
         <Text style={styles.helperText}>Tap the circle to toggle between the launch pads</Text>
       </View>
@@ -99,7 +123,11 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
     backgroundColor: '#142634'
   },
-  paragraph: {
+  rocket: {
+    fontSize: 24,
+    color: '#d48872'
+  },
+  launchPad: {
     marginTop: 32,
     fontSize: 18,
     textAlign: 'center',
