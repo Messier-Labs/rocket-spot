@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Platform, Text, ScrollView, RefreshControl } from 'react-native';
+import { Platform, Text, View, StyleSheet } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
 
 import { API_ENDPOINT } from 'react-native-dotenv';
 
 import Compass from './src/components/Compass';
 import Timer from './src/components/Timer';
-
-import styles from './src/styles/App';
 
 import getBearing from './src/utils/get-bearing';
 import launchPadCoords from './src/utils/launch-pads';
@@ -20,15 +18,8 @@ export default class App extends Component {
     errorMessage: null,
     launchPad: 1,
     launchTime: null,
-    name: null,
-    isRefreshing: false
+    name: null
   };
-
-  onRefresh = async() => {
-    this.setState({ refreshing: true });
-    await this.getLaunchDetails();
-    this.setState({ refreshing: false });
-  }
 
   componentDidMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
@@ -53,10 +44,7 @@ export default class App extends Component {
 
       this.setState({ launchTime: date, launchPad, name });
     } catch(error) {
-      // Ignore error if there's already some data that was fetched previously.
-      if (this.state.launchTime === null) {
-        this.setState({ errorMessage: 'Could not fetch launch details' });
-      }
+      this.setState({ errorMessage: 'Could not fetch launch details' });
     }
   };
 
@@ -96,11 +84,7 @@ export default class App extends Component {
     }
 
     let { latitude, longitude } = location.coords;
-    let bearingToLaunchPad = getBearing(
-      { latitude, longitude },
-      launchPadCoords[launchPad - 1]
-    );
-
+    let bearingToLaunchPad = getBearing({ latitude, longitude }, launchPadCoords[launchPad - 1]);
     this.setState({ bearingToLaunchPad });
   };
 
@@ -112,15 +96,8 @@ export default class App extends Component {
       text = `Launch Pad ${this.state.launchPad}`;
     }
 
-    let refreshControl = (
-      <RefreshControl
-        progressViewOffset={10}
-        refreshing={this.state.isRefreshing}
-        onRefresh={this.onRefresh} />
-    );
-
     return (
-      <ScrollView contentContainerStyle={styles.container} refreshControl={refreshControl}>
+      <View style={styles.container}>
         <Timer launchTime={this.state.launchTime} />
 
         <Compass
@@ -133,7 +110,33 @@ export default class App extends Component {
         <Text style={styles.launchPad}>{text}</Text>
 
         <Text style={styles.helperText}>Tap the circle to toggle between the launch pads</Text>
-      </ScrollView>
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#142634'
+  },
+  rocket: {
+    fontSize: 24,
+    color: '#d48872'
+  },
+  launchPad: {
+    marginTop: 32,
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#bdc7d1'
+  },
+  helperText: {
+    marginTop: 12,
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#5a666b'
+  }
+});
