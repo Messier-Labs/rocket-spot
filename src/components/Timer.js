@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Text } from 'react-native';
-
-import styles from '../styles/Timer';
+import { Text, StyleSheet } from 'react-native';
 
 import formatTimeDifference from './../utils/format-time-difference';
 
@@ -40,3 +38,23 @@ export default class Timer extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  timer: {
+    letterSpacing: 5,
+    fontSize: 48,
+    textAlign: 'center',
+    color: '#bdc7d1'
+  },
+  caption: {
+    fontSize: 20,
+    color: '#d48872',
+    letterSpacing: 2
+  },
+  legend: {
+    fontSize: 14,
+    letterSpacing: 35,
+    textAlign: 'center',
+    color: '#5a666b'
+  }
+});
