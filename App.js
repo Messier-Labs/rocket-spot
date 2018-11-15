@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, Text, ScrollView, RefreshControl } from 'react-native';
-import { Constants, Location, Permissions } from 'expo';
+import { Constants, KeepAwake, Location, Permissions } from 'expo';
 
 import { API_ENDPOINT } from 'react-native-dotenv';
 
@@ -121,6 +121,8 @@ export default class App extends Component {
 
     return (
       <ScrollView contentContainerStyle={styles.container} refreshControl={refreshControl}>
+        <KeepAwake />
+
         <Timer launchTime={this.state.launchTime} />
 
         <Compass
