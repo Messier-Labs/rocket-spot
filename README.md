@@ -8,9 +8,9 @@ We appreciate any feedback. Feel free to file issues or request new features.
 
 ### Screenshots
 
-![Screen shot](screenshot1.jpg)
-![Screen shot](screenshot2.jpg)
-![Screen shot](screenshot3.jpg)
+![Screen shot](screenshot1.png)
+![Screen shot](screenshot2.png)
+![Screen shot](screenshot3.png)
 <!-- 
 <img alt="screenshot" src="screenshot1.jpg" height="500">
 <img alt="screenshot" src="screenshot2.jpg" height="500">
