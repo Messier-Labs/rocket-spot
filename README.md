@@ -8,14 +8,9 @@ We appreciate any feedback. Feel free to file issues or request new features.
 
 ### Screenshots
 
-![Screen shot](screenshot1.png){:height="500px"}
-![Screen shot](screenshot2.png){:height="500px"}
-![Screen shot](screenshot3.png){:height="500px"}
-<!-- 
-
-<img alt="screenshot" src="screenshot1.jpg" height="500">
-<img alt="screenshot" src="screenshot2.jpg" height="500">
-<img alt="screenshot" src="screenshot3.jpg" height="500"> -->
+<img alt="screenshot" src="screenshot1.png" height="500">
+<img alt="screenshot" src="screenshot2.png" height="500">
+<img alt="screenshot" src="screenshot3.png" height="500">
 
 ### License
 MIT © [Messier Labs](https://github.com/Messier-Labs)
