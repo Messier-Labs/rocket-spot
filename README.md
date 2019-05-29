@@ -8,9 +8,13 @@ We appreciate any feedback. Feel free to file issues or request new features.
 
 ### Screenshots
 
+![Screen shot](screenshot1.jpg)
+![Screen shot](screenshot2.jpg)
+![Screen shot](screenshot3.jpg)
+<!-- 
 <img alt="screenshot" src="screenshot1.jpg" height="500">
 <img alt="screenshot" src="screenshot2.jpg" height="500">
-<img alt="screenshot" src="screenshot3.jpg" height="500">
+<img alt="screenshot" src="screenshot3.jpg" height="500"> -->
 
 ### License
 MIT © [Messier Labs](https://github.com/Messier-Labs)
