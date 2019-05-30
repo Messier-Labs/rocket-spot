@@ -8,9 +8,9 @@ We appreciate any feedback. Feel free to file issues or request new features.
 
 ### Screenshots
 
-<img alt="screenshot" src="../assets/screenshot1.png" height="500">
-<img alt="screenshot" src="../assets/screenshot2.png" height="500">
-<img alt="screenshot" src="../assets/screenshot3.png" height="500">
+<img alt="screenshot" src="assets/screenshot1.png" height="500">
+<img alt="screenshot" src="assets/screenshot2.png" height="500">
+<img alt="screenshot" src="assets/screenshot3.png" height="500">
 
 ### License
 MIT © [Messier Labs](https://github.com/Messier-Labs)
