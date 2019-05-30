@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Rocket Watch",
+    "name": "Rocket Spot",
     "description": "Points at SHAR launch pads from your current location",
-    "slug": "rocket-watch",
+    "slug": "rocket-spot",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": [
@@ -11,9 +11,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/app_icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash_screen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -25,11 +25,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.messierlabs.rocketwatch"
+      "bundleIdentifier": "com.messierlabs.rocketspot"
     },
     "android": {
-      "package": "com.messierlabs.rocketwatch"
+      "package": "com.messierlabs.rocketspot"
     },
-    "githubUrl": "https://github.com/Messier-Labs/rocket-watch"
+    "githubUrl": "https://github.com/Messier-Labs/rocket-spot"
   }
 }
