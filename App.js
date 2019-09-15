@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Platform, Text, ScrollView, RefreshControl } from 'react-native';
-import { Constants, KeepAwake, Location, Permissions } from 'expo';
+import * as Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
+import KeepAwake from 'expo-keep-awake';
+import Constants from 'expo-constants';
 
 import { API_ENDPOINT } from 'react-native-dotenv';
 
