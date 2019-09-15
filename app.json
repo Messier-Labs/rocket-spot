@@ -11,11 +11,12 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
+    "primaryColor": "#142634",
     "icon": "./assets/app_icon.png",
     "splash": {
       "image": "./assets/splash_screen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#142634"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -28,7 +29,11 @@
       "bundleIdentifier": "com.messierlabs.rocketspot"
     },
     "android": {
-      "package": "com.messierlabs.rocketspot"
+      "package": "com.messierlabs.rocketspot",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
     },
     "githubUrl": "https://github.com/Messier-Labs/rocket-spot"
   }
