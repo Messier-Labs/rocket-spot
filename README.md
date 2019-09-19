@@ -4,7 +4,7 @@ An app that provides orientation information based on your current location to s
 
 We appreciate any feedback. Feel free to file issues or request new features.
 
-[Download APK](https://github.com/Messier-Labs/rocket-watch/releases/latest)
+[Download From the Play Store](https://play.google.com/store/apps/details?id=com.messierlabs.rocketspot)
 
 ### Screenshots
 
